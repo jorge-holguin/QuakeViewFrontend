@@ -1,3 +1,4 @@
+import React from 'react'; // Asegúrate de importar React
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
