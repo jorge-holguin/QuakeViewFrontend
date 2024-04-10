@@ -1,0 +1,35 @@
+.earthquake-list-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd; /* Borde ligero para la caja */
+    border-radius: 8px; /* Bordes redondeados para la caja */
+    background-color: #f9f9f9; /* Color de fondo para la caja */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra ligera para dar profundidad */
+  }
+  
+  .earthquake-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .earthquake-magnitude {
+    font-size: 1.2em; /* Tamaño más grande para la magnitud */
+    font-weight: bold; /* Negrita para la magnitud */
+    color: #d04a02; /* Color para la magnitud */
+    margin-bottom: 5px;
+  }
+  
+  .earthquake-place {
+    font-size: 0.9em; /* Tamaño de fuente para el lugar */
+    margin-bottom: 5px;
+  }
+  
+  .earthquake-time {
+    font-size: 0.8em; /* Tamaño de fuente para la hora */
+    color: #666; /* Color gris para la hora */
+  }
+  
