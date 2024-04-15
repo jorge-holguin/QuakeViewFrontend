@@ -1,21 +1,18 @@
 import React from 'react';
 import './App.css';
-import EarthquakeMap from './components/EarthquakeMap';
-import EarthquakeList from './components/EarthquakeList';
+import EarthquakeDashboard from './components/EarthquakeDashboard';
+import logo from './logo.svg';
+ 
 
 function App() {
   return (
     <div className="App">
-      <header>
-        {/* Si necesitas algún contenido en el encabezado, añádelo aquí */}
+      <header className="App-header">
+        <img src={logo} alt="QuakeWatch Logo" className="App-logo" />
+        <h1>QuakeWatch</h1>
       </header>
-      <main className="Main-content">
-        <section className="Sidebar">
-          <EarthquakeList />
-        </section>
-        <section className="MapArea">
-          <EarthquakeMap />
-        </section>
+      <main>
+        <EarthquakeDashboard />
       </main>
     </div>
   );
