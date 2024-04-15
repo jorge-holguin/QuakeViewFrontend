@@ -1,0 +1,79 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+}
+
+.list-container {
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  padding: 0 20px;
+  overflow-y: auto;
+ 
+}
+
+.map-container {
+  flex-grow: 1;
+  overflow: hidden; 
+  position: relative; 
+}
+  
+  /* Estilos para los selects y botones */
+  .select-container,
+  .button-container {
+    margin-bottom: 1rem;
+  }
+  
+  .form-select {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    background-color: var(--primary-bg-color);
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: #00897b; /* Un tono más oscuro de cian/turquesa para el hover */
+    border-color: #00897b;
+  }
+  
+  /* Ajustes para la paginación y el texto 'No Data Found' */
+  .pagination-text,
+  .no-data-text {
+    color: var(--text-secondary);
+  }
+  
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column; /* Cambia la dirección de los contenedores a columna en móviles */
+      align-items: center;
+      width: 100%;
+
+    }
+   
+    .list-container {
+     width: auto;
+     padding: 0 20px; 
+     display: flex;
+     justify-content: center; 
+     align-items: center; 
+  }
+    .map-container {
+      display: none;
+    }
+  }
+  

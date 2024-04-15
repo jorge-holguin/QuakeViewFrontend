@@ -1,0 +1,107 @@
+.earthquake-list-container {
+    background-color: #1a1a1a; /* Fondo oscuro según tu paleta de colores */
+    color: #fff; /* Texto claro */
+    padding: 20px; /* Espaciado interior */
+    border-radius: 5px; /* Bordes redondeados */
+    height: 100%; /* Asegúrate de que el contenedor tome toda la altura disponible */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es demasiado largo */
+    width: 100%;
+}
+
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre los elementos al cambiar de dirección */
+    justify-content: space-between;
+    margin-bottom: 20px; /* Espaciado entre secciones */
+}
+
+.sort-filter,
+.magnitude-filter,
+.items-per-page-section {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%; /* Cada filtro toma el ancho completo en pantallas pequeñas */
+}
+
+label {
+    margin-bottom: 5px; /* Espaciado entre el label y el select */
+}
+
+.form-select {
+    background-color: #262626; /* Dark grey background */
+    color: #00B2A9; /* Cyan text */
+    border: 1px solid #00B2A9; /* Cyan border */
+    padding: 0.5rem 1rem; /* Padding around the text */
+    border-radius: 5px; /* Rounded borders */
+    font-size: 1rem; /* Standard font size */
+    appearance: none; /* Remove default styling */
+    cursor: pointer; /* Cursor to pointer to indicate it's a dropdown */
+    transition: all 0.3s ease; /* Smooth transition for color changes */
+  }
+  
+  .form-select:focus {
+    border-color: #017374; /* Slightly darker cyan for focus */
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 0 0.2rem rgba(0, 178, 169, 0.25); /* Glow effect on focus */
+  }
+  
+  /* Custom arrow using background-image */
+  .form-select {
+    background-image: linear-gradient(45deg, transparent 50%, #00B2A9 50%),
+                      linear-gradient(135deg, #00B2A9 50%, transparent 50%);
+    background-position: right 15px top 50%, right 10px top 50%;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+  }
+  
+  /* Styling options */
+  .form-select option {
+    background-color: #1a1a1a; /* Dark background for options */
+    color: #fff; /* White text for options */
+  }
+  
+  /* Custom styles for when the select box is open */
+  .form-select:active,
+  .form-select[multiple]:active,
+  .form-select:hover {
+    background-image: linear-gradient(45deg, transparent 50%, #029d9e 50%),
+                      linear-gradient(135deg, #029d9e 50%, transparent 50%);
+  }
+  
+      
+.list-group
+{
+    margin-top: 40px;
+}
+.list-group.earthquake-list {
+    margin-bottom: 20px; /* Espaciado antes de la paginación */
+}
+
+.pagination-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: #00B2A9; /* Color de tu paleta para los botones */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:disabled {
+    background-color: #333;
+    cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+    background-color: #029d9e; /* Un tono más claro del color del botón */
+}
+
+
+

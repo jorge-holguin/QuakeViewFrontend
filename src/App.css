@@ -1,35 +1,53 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  /* tus estilos para el header */
-}
-
-.Main-content {
-  display: flex;
-  flex-direction: row;
-  height: calc(100vh - 1vh); /* Reemplaza 'alturaDelHeader' con la altura real de tu header */
-  padding: 20px;
-}
-
-.Sidebar {
-  width: 20%; /* O el ancho que prefieras para tu sidebar */
-  overflow-y: auto; /* Permite el scroll en la lista si es muy larga */
-  height: 100%; /* Toma la altura completa del Main-content */
-}
-
-.MapArea {
-  flex-grow: 1; /* Ocupa el espacio restante */
-  overflow: hidden; /* Si no quieres scroll en el mapa */
-}
-
-@media (max-width: 768px) {
-  .Sidebar {
-    width: 100%; /* En dispositivos móviles, el sidebar ocupa todo el ancho */
+:root {
+    --primary-color: #00B2A9;
+    --text-color: #FFFFFF;
+    --text-secondary: #D6D6D6;
+    --background-color: #000000;
+    --secondary-bg-color: #F2F2F2;
+    --border-radius: 8px;
   }
   
-  .MapArea {
-    display: none; /* El mapa se oculta en dispositivos móviles */
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
-}
+  
+.App {
+    text-align: center;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    padding: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+  }
+  
+  .App-logo {
+    height: 50px;
+    margin-right: 1rem;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .App-header {
+      justify-content: center;
+    }
+  
+    .Sidebar {
+      width: 100%;
+    }
+  
+    .MapArea {
+      display: none;
+    }
+  }
+  

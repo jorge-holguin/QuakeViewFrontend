@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# QuakeWatch Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+QuakeWatch is a web application that visualizes real-time earthquake data, utilizing a Ruby on Rails backend to serve data from the USGS API. This frontend is built with React and TypeScript, providing an interactive user interface for data visualization.
 
-## Available Scripts
+### Screenshots
+#### Desktop Version
+<p align="center">
+  <img src="./public/QuakeWatch_Desktop.webp" alt="QuakeWatch Desktop Version">
+</p>
 
-In the project directory, you can run:
+#### Mobile Version
+<p align="center">
+  <img src="./public/QuakeWatch_Mobile.webp" alt="QuakeWatch Mobile Version">
+</p>
 
-### `npm start`
+## Environment Setup
+### Requirements
+- Node.js
+- npm or yarn
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation
+Clone the repository and install the dependencies:
+```bash
+git clone https://github.com/jorge-holguin/QuakeViewFrontend.git
+```
+```bash
+cd QuakeWatch/frontend
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Configuration
+Ensure to set up the necessary environment variables in .env, including the backend URL.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Usage
+To start the local development server:
+```bash
+npm start
+```
+View the application in action by visiting http://localhost:3001. It is recommended to use port 3001 to avoid conflicts with the backend.
 
 ### Deployment
+Instructions for deploying on Netlify:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. **Build your project:** First, you need to compile your React application into static files that can be served. Run the following command in your project directory:
+   ```bash
+   npm run build
+    ```
+    This command generates a build directory with all the static files.
 
-### `npm run build` fails to minify
+2. **Set up on Netlify:** Log into Netlify and create a new site by linking your GitHub repository. Choose to deploy from the main branch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Configure Environment Variables:** In the Netlify dashboard, set the necessary environment variables such as API endpoints or any other secrets your application requires.
+
+4. **Deploy:** Follow Netlify’s prompts to deploy your application. Netlify will automatically deploy your application each time you push changes to the main branch.
+
+### Contributions
+Contributions are welcome. Please send your pull requests to the main branch.
+
+### License
+MIT License

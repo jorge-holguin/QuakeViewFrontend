@@ -1,35 +1,79 @@
+:root {
+  /* Colores definidos para facilidad de uso */
+  --primary-color: #00B2A9;
+  --border-radius: 8px;
+  --secondary-bg-color: #2a2a2a; /* Un gris más oscuro que el fondo pero no tan oscuro como antes */
+  --text-color: #FFFFFF;
+  --text-secondary: #D6D6D6;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
 .earthquake-list-item {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd; /* Borde ligero para la caja */
-    border-radius: 8px; /* Bordes redondeados para la caja */
-    background-color: #f9f9f9; /* Color de fondo para la caja */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra ligera para dar profundidad */
-  }
-  
-  .earthquake-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .earthquake-magnitude {
-    font-size: 1.2em; /* Tamaño más grande para la magnitud */
-    font-weight: bold; /* Negrita para la magnitud */
-    color: #d04a02; /* Color para la magnitud */
-    margin-bottom: 5px;
-  }
-  
-  .earthquake-place {
-    font-size: 0.9em; /* Tamaño de fuente para el lugar */
-    margin-bottom: 5px;
-  }
-  
-  .earthquake-time {
-    font-size: 0.8em; /* Tamaño de fuente para la hora */
-    color: #666; /* Color gris para la hora */
-  }
-  
+  position: relative; 
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--primary-color); /* Borde cian o turquesa para la caja */
+  border-radius: var(--border-radius); /* Bordes redondeados para la caja */
+  background-color: var(--secondary-bg-color); /* Color de fondo secundario más oscuro para la caja */
+  box-shadow: 0 2px 4px var(--shadow-color); /* Sombra más marcada para dar profundidad */
+}
+
+.comment {
+  font-size: 0.9em; /* Más pequeña que el texto estándar */
+  font-weight: bold; /* Texto en negrita */
+  margin-top: 4px; /* Espacio entre comentarios */
+}
+
+.comment-form {
+  position: absolute; /* Posiciona el formulario absolutamente dentro del ítem */
+  top: 0; /* Alinea el formulario con la parte superior del ítem */
+  right: 0; /* Alinea el formulario a la derecha del ítem */
+  background-color: white; /* Fondo del formulario para destacar sobre el ítem */
+  padding: 10px;
+  border-radius: 8px; /* Bordes redondeados para el formulario */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para el formulario */
+  z-index: 100; /* Asegura que el formulario se sobreponga a otros elementos */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Alinea los botones al inicio del contenedor */
+  margin-top: 10px; /* Ajusta el margen entre el textarea y los botones */
+}
+
+.button-container button {
+  margin-right: 10px; /* Ajusta el espacio entre los botones */
+}
+
+.add-comment-button {
+  margin-left: auto; /* Empuja el botón hacia la derecha dentro del ítem */
+}
+
+.earthquake-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.earthquake-magnitude {
+  font-size: 1.2em; /* Tamaño más grande para la magnitud */
+  font-weight: bold; /* Negrita para la magnitud */
+  color: var(--primary-color); /* Color cian o turquesa para la magnitud */
+  margin-bottom: 5px;
+}
+
+.earthquake-place {
+  font-size: 0.9em; /* Tamaño de fuente para el lugar */
+  font-weight: bold; /* Negrita para resaltar el lugar */
+  margin-bottom: 5px;
+}
+
+.earthquake-time {
+  font-size: 0.8em; /* Tamaño de fuente para la hora */
+  color: var(--text-color); /* Texto principal blanco para la hora */
+  text-shadow: 1px 1px 3px var(--shadow-color); /* Sombra para mejorar la legibilidad */
+}
