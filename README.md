@@ -2,7 +2,7 @@
 
 ## Description
 QuakeWatch is a web application that visualizes real-time earthquake data, utilizing a Ruby on Rails backend to serve data from the USGS API. This frontend is built with React and TypeScript, providing an interactive user interface for data visualization.
-
+g
 ### Screenshots
 #### Desktop Version
 <p align="center">

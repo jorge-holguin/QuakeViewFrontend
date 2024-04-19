@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import EarthquakeListItem from './EarthquakeListItem';
 import {EarthquakeListProps} from '../interfaces/EarthquakeListProps'; // Verifica que esta ruta sea correcta}
 import './EarthquakeList.css'; 
@@ -12,8 +12,38 @@ const EarthquakeList: React.FC<EarthquakeListProps> = ({
   itemsPerPage,
   setMagType
 }) => {
+
+  const listContainerRef = useRef<HTMLDivElement>(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  const scrollToTop = () => {
+    if (listContainerRef.current) {
+      listContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth' 
+      });
+    }
+  };
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (listContainerRef.current && listContainerRef.current.scrollTop > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    const listContainer = listContainerRef.current;
+    listContainer?.addEventListener('scroll', checkScroll);
+
+    return () => {
+      listContainer?.removeEventListener('scroll', checkScroll);
+    };
+  }, []);
+  
   return (
-    <div className="earthquake-list-container">
+    <div className="earthquake-list-container" ref={listContainerRef}>
       <div className="filter-section">
         <div className="sort-filter">
           <label htmlFor="sortType" className="form-label">Sort by:</label>
@@ -63,6 +93,9 @@ const EarthquakeList: React.FC<EarthquakeListProps> = ({
         <span>Page {currentPage}</span>
         <button className="btn btn-primary ms-2" onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
       </div>
+      {showScrollButton && (
+        <button onClick={scrollToTop} className="scroll-to-top-btn">↑</button>
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 .earthquake-list-container {
+    position: relative; /* Permite posicionamiento absoluto de elementos internos */
     background-color: #1a1a1a; /* Fondo oscuro según tu paleta de colores */
     color: #fff; /* Texto claro */
     padding: 20px; /* Espaciado interior */
@@ -72,6 +73,7 @@ label {
       
 .list-group
 {
+    overflow-y: auto;
     margin-top: 40px;
 }
 .list-group.earthquake-list {
@@ -104,4 +106,33 @@ button:not(:disabled):hover {
 }
 
 
-
+.scroll-to-top-btn {
+    position: fixed; /* Posicionamiento fijo en la ventana */
+    z-index: 1000;  
+    left: 20px; /* Espaciado desde el lado izquierdo */
+    top: 20px; /* Espaciado desde la parte inferior */
+    height: 50px; /* Altura del botón */
+    width: 50px; /* Ancho del botón */
+    border-radius: 50%; /* Hace el botón redondo */
+    background-color: #00B2A9; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor como puntero */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra para mejor visibilidad */
+    font-size: 24px; /* Tamaño del texto */
+    display: flex; /* Para centrar el ícono en el botón */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+  }
+  
+  .scroll-to-top-btn:hover {
+    background-color: #029d9e; /* Color al pasar el mouse */
+  }
+  
+  @media (max-width: 768px) { /* Ajustes para móviles */
+    .scroll-to-top-btn {
+      top: 20px; /* Superior derecha en móviles */
+      bottom: auto;
+      font-size: 2rem; /* Tamaño más grande */
+    }
+  }

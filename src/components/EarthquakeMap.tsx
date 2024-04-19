@@ -2,17 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './EarthquakeMap.css'; // Asegúrate de importar el CSS aquí
-
-interface EarthquakeMapProps {
-  earthquakes: {
-    id: string;
-    magnitude: number;
-    place: string;
-    time: number;
-    longitude: number;
-    latitude: number;
-  }[];
-}
+import {EarthquakeMapProps} from '../interfaces/EarthquakeMapProps'; // Verifica que esta ruta sea correcta}
 
 const EarthquakeMap: React.FC<EarthquakeMapProps> = ({ earthquakes }) => {
   const mapRef = useRef<HTMLDivElement>(null);

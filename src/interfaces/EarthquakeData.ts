@@ -1,5 +1,3 @@
-// interfaces/EarthquakeData.ts
-
 export interface EarthquakeData {
     id: string;
     magnitude: number;

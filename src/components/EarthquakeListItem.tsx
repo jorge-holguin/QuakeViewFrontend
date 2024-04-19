@@ -1,44 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import './EarthquakeListItem.css';
-
-interface EarthquakeListItemProps {
-  earthquake: {
-    id: string;
-    magnitude: number | string;
-    place: string;
-    time: number;
-  };
-}
-
-// Define la interfaz para los comentarios
-interface Comment {
-  id: number; // Asegúrate de que los comentarios también tengan un ID
-  body: string;
-}
+import { EarthquakeListItemProps } from '../interfaces/EarthquakeListItemProps'; 
+import { Comment } from '../interfaces/Comment';
 
 const EarthquakeListItem: React.FC<EarthquakeListItemProps> = ({ earthquake }) => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [comment, setComment] = useState('');
   const [showForm, setShowForm] = useState(false);
 
+  // Definir URL de la API basada en el entorno
+  const apiUrl = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_API_URL : process.env.REACT_APP_PROD_API_URL;
+
   // Cargar comentarios existentes al montar el componente
   useEffect(() => {
     const fetchComments = async () => {
-      const url = `http://127.0.0.1:3000/api/features/${earthquake.id}/comments`;
+      const url = `${apiUrl}/${earthquake.id}/comments`;
       const response = await fetch(url);
       const data = await response.json();
       setComments(data); // Suponiendo que la respuesta es un arreglo de objetos con una propiedad 'body'
     };
     
     fetchComments();
-  }, [earthquake.id]);
+  }, [earthquake.id, apiUrl]);
 
   const handleCommentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setComment(event.target.value);
   };
 
   const submitComment = async () => {
-    const url = `http://127.0.0.1:3000/api/features/${earthquake.id}/comments`;
+    const url = `${apiUrl}/${earthquake.id}/comments`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -59,7 +49,7 @@ const EarthquakeListItem: React.FC<EarthquakeListItemProps> = ({ earthquake }) =
   };
 
   const deleteComment = async (commentId: number) => {
-    const url = `http://127.0.0.1:3000/api/features/${earthquake.id}/comments/${commentId}`;
+    const url = `${apiUrl}/${earthquake.id}/comments/${commentId}`;
     const response = await fetch(url, {
       method: 'DELETE',
     });
@@ -81,7 +71,6 @@ const EarthquakeListItem: React.FC<EarthquakeListItemProps> = ({ earthquake }) =
         <div className="earthquake-magnitude">{magnitude.toFixed(1)}</div>
         <div className="earthquake-place">{earthquake.place}</div>
         <div className="earthquake-time">{new Date(earthquake.time).toLocaleString()}</div>
-        {/* Renderiza la lista de comentarios */}
         {comments.map((comment) => (
           <div key={comment.id} className="comment">
             {comment.body}
@@ -94,8 +83,8 @@ const EarthquakeListItem: React.FC<EarthquakeListItemProps> = ({ earthquake }) =
         <div className="comment-form">
           <textarea value={comment} onChange={handleCommentChange} placeholder="Insert your comment here" />
           <div className="button-container">
-            <button onClick={submitComment}>Guardar</button>
-            <button onClick={toggleForm}>Cancelar</button>
+            <button onClick={submitComment}>Save</button>
+            <button onClick={toggleForm}>Cancel</button>
           </div>
         </div>
       )}

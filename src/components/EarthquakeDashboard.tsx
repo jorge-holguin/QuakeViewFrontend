@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import EarthquakeList from './EarthquakeList';
 import EarthquakeMap from './EarthquakeMap';
 import { EarthquakeData } from '../interfaces/EarthquakeData';
-import './EarthquakeDashboard.css'; // Import the new CSS file
+import './EarthquakeDashboard.css'; 
 
 const EarthquakeDashboard: React.FC = () => {
   const [earthquakes, setEarthquakes] = useState<EarthquakeData[]>([]);
@@ -11,8 +11,10 @@ const EarthquakeDashboard: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [magType, setMagType] = useState<string>('');
 
+  const apiUrl = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_API_URL : process.env.REACT_APP_PROD_API_URL;
+
   const fetchEarthquakes = useCallback(async () => {
-    let url = `http://127.0.0.1:3000/api/features?page=${currentPage}&per_page=${itemsPerPage}`;
+    let url = `${apiUrl}?page=${currentPage}&per_page=${itemsPerPage}`;
     if (magType) {
       url += `&mag_type=${magType}`;
     }
@@ -33,7 +35,8 @@ const EarthquakeDashboard: React.FC = () => {
       }
     });
     setEarthquakes(sortedData);
-  }, [currentPage, itemsPerPage, magType, sortType]);
+  }, [apiUrl, currentPage, itemsPerPage, magType, sortType]);
+  
 
   useEffect(() => {
     fetchEarthquakes();
